@@ -200,6 +200,11 @@ class Application
 
         $this->commands[$name] = $command->version($this->version)->onExit($this->onExit)->bind($this);
 
+        if (method_exists($command, "getSubCommands")) {
+            foreach ($command->getSubCommands() as $subcommand) {
+                $this->add($subcommand);
+            }
+        }
         return $this;
     }
 

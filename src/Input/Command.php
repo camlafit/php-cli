@@ -450,4 +450,19 @@ class Command extends Parser implements Groupable
     {
         return new ProgressBar($total, $this->writer());
     }
+
+
+    /**
+     * Get all related subCommands
+     *
+     * by default is an empty array
+     * could be populated by any way
+     * Return is an array[Command]
+     *
+     * @return array Command
+     */
+    public function getSubCommands(): Array
+    {
+        return [];
+    }
 }
